@@ -32,7 +32,8 @@ export default function DashboardClientPage({ accounts }: DashboardClientPagePro
         This component no longer needs the h1, as it's now inside the AccountTable 
         for better layout control with the fixed height.
       */}
-      <AccountTable accounts={accounts} />
+      {/* <AccountTable accounts={accounts} companyName={''} /> */}
+      <AccountTable  />
     </div>
   );
 }

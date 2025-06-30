@@ -14,7 +14,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* --background: #0a0a0a; */
+    --background: #F0EDCC;
     --foreground: #ededed;
   }
 }
@@ -23,4 +23,165 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.ag-theme-alpine .ag-row {
+  transition: background-color 0.2s ease;
+}
+.ag-theme-alpine .ag-row:hover {
+  background-color: #f3f4f6; /* Tailwind's gray-100 */
+}
+
+
+
+
+/* Remove AG Grid borders */
+.ag-theme-alpine .ag-root-wrapper {
+  border: none;
+}
+.ag-theme-alpine .ag-cell {
+  border: none;
+}
+.ag-theme-alpine .ag-row {
+  border-bottom: none;
+}
+
+/* Alternate row styling */
+.ag-theme-alpine .ag-row-odd {
+  background-color: #f3f4f6; /* Tailwind's bg-gray-100 */
+}
+
+.ag-theme-alpine .ag-row-even {
+  background-color: #ffffff; /* white */
+}
+.ag-theme-alpine .ag-row:hover {
+  background-color: #e5e7eb; /* Tailwind's bg-gray-200 */
+}
+
+
+/* Header styling */
+.ag-theme-alpine .ag-header {
+  /* background-color: #424244 !important; Tailwind's indigo-600 */
+  color: white !important;
+  font-weight: 600;
+}
+/* Remove cell outline on click/focus */
+.ag-theme-alpine .ag-cell:focus, 
+.ag-theme-alpine .ag-row:focus,
+.ag-theme-alpine .ag-cell-focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+.ag-theme-alpine .ag-row:hover .ag-cell {
+  border: none !important;
+}
+
+
+/* Only center cells with this class */
+.ag-theme-alpine .center-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Vertically center all cell content */
+.ag-theme-alpine .ag-cell {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-top: 0; /* Ensure no extra padding pushes it up */
+  padding-bottom: 0;
+}
+
+/* Ensure rows align items center too */
+.ag-theme-alpine .ag-row {
+  align-items: center;
+}
+.ag-theme-alpine .ag-header-cell-label {
+  color: #374151 !important; /* Tailwind's text-gray-700 */
+  font-weight: 600;
+}
+/* Applies to the calendar popup */
+.custom-datepicker-popper .react-datepicker__header {
+  background-color: #dbeafe; /* Tailwind sky-100 */
+  border-bottom: 1px solid #93c5fd; /* Tailwind sky-300 */
+  padding: 0.75rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+/* Styles the month + year text */
+.custom-datepicker-popper .react-datepicker__current-month {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e3a8a; /* Tailwind blue-900 */
+  text-align: center;
+}
+
+/* Navigation buttons (arrows) */
+.custom-datepicker-popper .react-datepicker__navigation {
+  top: 1rem;
+}
+
+/* Weekday headers (Su, Mo, etc.) */
+.custom-datepicker-popper .react-datepicker__day-names {
+  background-color: #eff6ff; /* Tailwind blue-50 */
+  font-weight: 600;
+  color: #1e3a8a;
+  border-top: 1px solid #c7d2fe;
+  border-bottom: 1px solid #c7d2fe;
+}
+
+
+
+
+/* DatePopup file css */
+/* styles/globals.css */
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 200ms ease-in;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+@keyframes popup {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-popup {
+  animation: popup 200ms ease-out;
+}
+
+
+/* TransactionPopup file css */
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.3s ease-out;
 }

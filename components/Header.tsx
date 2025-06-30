@@ -1,34 +1,3 @@
-// 'use client';
-
-// import Link from 'next/link';
-// import { useAuth } from '@/context/AuthContext';
-
-// const Header = () => {
-//   const { isAuthenticated, logout } = useAuth();
-
-//   return (
-//     <header className="bg-gray-800 text-white shadow-lg">
-//       <div className="container mx-auto flex justify-between items-center p-4">
-//         <Link href="/" className="text-xl md:text-2xl font-bold tracking-wider">
-//           MyBank Dashboard
-//         </Link>
-//         <nav>
-//           {isAuthenticated && (
-//             <button
-//               onClick={logout}
-//               className="px-3 py-2 rounded bg-indigo-600 hover:bg-indigo-700 transition-colors"
-//             >
-//               Logout
-//             </button>
-//           )}
-//         </nav>
-//       </div>
-//     </header>
-//   );
-// };
-// export default Header;
-
-
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -56,22 +25,16 @@ const Header = () => {
 
   // --- CHANGE 1: Reverted to the original dark background color ---
   return (
-    <header className="bg-gray-800 text-white shadow-lg sticky top-0 z-50">
+   <header
+  style={{ backgroundColor: '#02343F', color: '#F0EDCC' }}
+  className="shadow-lg sticky top-0 z-50"
+>
+
       <div className="container mx-auto flex justify-between items-center p-4">
         {/* Logo */}
         <Link href="/" className="text-xl md:text-2xl font-bold tracking-wider">
           CBU-Bank
         </Link>
-
-        {/* --- CHANGE 2: Desktop Navigation is now conditional --- */}
-           {/* --- CHANGE 2: Desktop Navigation is now conditional --- */}
-    {/* {isAuthenticated && (
-      <nav className="hidden md:flex items-center space-x-6">
-        <Link href="/dashboard" className="hover:text-gray-300 transition-colors">Dashboard</Link>
-        <Link href="/transfers" className="hover:text-gray-300 transition-colors">Transfers</Link>
-        <Link href="/analytics" className="hover:text-gray-300 transition-colors">Analytics</Link>
-      </nav>
-    )} */}
 
     {/* Profile / Login Button */}
     <div className="flex items-center space-x-4">
@@ -124,15 +87,6 @@ const Header = () => {
       )}
     </div>
   </div>
-
-  {/* --- CHANGE 2 (Continued): Mobile Menu is now conditional --- */}
-  {/* {isAuthenticated && isMobileMenuOpen && (
-    <div className="md:hidden bg-gray-700 border-t border-gray-600">
-      <Link href="/dashboard" className="block px-4 py-3 hover:bg-gray-600">Dashboard</Link>
-      <Link href="/transfers" className="block px-4 py-3 hover:bg-gray-600">Transfers</Link>
-      <Link href="/analytics" className="block px-4 py-3 hover:bg-gray-600">Analytics</Link>
-    </div>
-  )} */}
 </header>
   );
 };
